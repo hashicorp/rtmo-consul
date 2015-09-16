@@ -1,0 +1,40 @@
+#
+# Let's Chat Settings
+#
+# See defaults.yml for all available options
+#
+
+env: production # development / production
+
+http:
+  enable: <%= @http_enabled %>
+  host: <%= @lc_bind_address %>
+  port: <%= @http_port %>
+
+https:
+  enable: <%= @ssl_enabled %>
+  port: <%= @ssl_port %>
+  key: <%= @ssl_key %>
+  cert: <%= @ssl_cert %>
+
+files:
+  enable: true
+  provider: local
+  local:
+    dir: uploads
+
+xmpp:
+  enable: <%= @xmpp_enabled %>
+  port: <%= @xmpp_port %>
+  domain: <%= @xmpp_domain %>
+
+database:
+  uri: mongodb://<%= @dbuser %>:<%= @dbpass %>@<%= @dbhost %>:<%= @dbport %>/<%= @dbname %>
+
+secrets:
+  cookie: <%= @cookie %>
+
+auth:
+  providers: [<%= @authproviders %>]
+  local:
+    enableRegistration: <%= @registration %>

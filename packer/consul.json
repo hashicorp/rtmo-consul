@@ -1,0 +1,46 @@
+{
+    "variables": {
+        "atlas_username": "ATLAS_ACCOUNT_NAME"
+    },
+    "builders": [
+    {
+      "type": "googlecompute",
+      "account_file": "account.json",
+      "image_name": "consul-{{timestamp}}",
+      "machine_type": "f1-micro",
+      "project_id": "rtmo-consul",
+      "source_image": "ubuntu-1204-precise-v20150910",
+      "zone": "us-central1-a"      
+    }
+    ],
+    "push": {
+      "name": "{{user `atlas_username`}}/consul-gce",
+      "vcs": false
+    },
+    "provisioners": [
+    {
+        "type": "shell",
+        "script": "scripts/consul.sh"
+    },
+    {
+        "type": "file",
+        "source": "files/consul.json",
+        "destination": "/etc/consul.d/consul.json"
+    },
+    {
+        "type": "file",
+        "source": "files/consul_server.conf",
+        "destination": "/etc/init/consul.conf"
+    }
+    ],
+    "post-processors": [
+      {
+        "type": "atlas",
+        "artifact": "{{user `atlas_username`}}/consul",
+        "artifact_type": "googlecompute.image",
+        "metadata": {
+          "created_at": "{{timestamp}}"
+        }
+      }
+    ]
+}

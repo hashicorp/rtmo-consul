@@ -1,0 +1,55 @@
+{
+    "variables": {
+        "atlas_username": "ATLAS_ACCOUNT_NAME"
+    },
+    "builders": [
+    {
+      "type": "googlecompute",
+      "account_file": "account.json",
+      "image_name": "mongodb-{{timestamp}}",
+      "machine_type": "f1-micro",
+      "project_id": "rtmo-consul",
+      "source_image": "ubuntu-1204-precise-v20150910",
+      "zone": "us-central1-a"      
+    }
+    ],
+    "push": {
+      "name": "{{user `atlas_username`}}/mongodb",
+      "vcs": false
+    },
+    "provisioners": [
+    {
+        "type": "shell",
+        "script": "scripts/mongodb.sh"
+    },
+    {
+        "type": "shell",
+        "script": "scripts/consul.sh"
+    },
+    {
+        "type": "file",
+        "source": "files/mongodb.json",
+        "destination": "/etc/consul.d/mongodb.json"
+    },
+    {
+        "type": "file",
+        "source": "files/consul_client.conf",
+        "destination": "/etc/init/consul.conf"
+    },
+    {
+        "type": "puppet-masterless",
+        "manifest_file": "puppet/manifests/mongodb.pp",
+        "module_paths": ["puppet/modules/"]
+    }
+    ],
+    "post-processors": [
+      {
+        "type": "atlas",
+        "artifact": "{{user `atlas_username`}}/mongodb",
+        "artifact_type": "googlecompute.image",
+        "metadata": {
+          "created_at": "{{timestamp}}"
+        }
+      }
+    ]
+}

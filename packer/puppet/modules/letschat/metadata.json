@@ -1,0 +1,33 @@
+{
+  "name": "jay-letschat",
+  "version": "1.2.0",
+  "author": "Jay Wallace",
+  "summary": "This module deploys Let's Chat, a Self-hosted chat app for small teams.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/mootpt/letschat-module",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemmajrelease": [
+        "12",
+        "14"
+      ]
+    }
+  ],
+  "issues_url": "https://github.com/mootpt/letschat-module/issues",
+  "tags": [
+    "chat",
+    "webapp",
+    "mongodb",
+    "node",
+    "nodejs",
+    "npm"
+  ],
+  "project_page": "https://github.com/mootpt/letschat-module",
+  "dependencies": [
+    {"version_requirement":">= 0.11.0","name":"puppetlabs-mongodb"},
+    {"version_requirement":">= 1.3.0","name":"puppetlabs-vcsrepo"},
+    {"version_requirement":">= 1.1.0","name":"jay-nodejs"},
+    {"version_requirement":">= 4.0.0","name":"puppetlabs-stdlib"}
+  ]
+}

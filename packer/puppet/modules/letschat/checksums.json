@@ -1,0 +1,13 @@
+{
+  "templates/letschat.erb": "8c52fce18da50551699c2ed744a356b7",
+  "README.md": "be37b4820936537346df864b36a74c70",
+  "templates/settings.yml.erb": "6d04a288570c7c1254b05209856cc2ee",
+  "examples/app.pp": "5c910d5d73602fec15321b984dab082d",
+  "examples/db.pp": "2aa6b719dbbdb4229a8ec96af7f41338",
+  "metadata.json": "a2dc25d5bbc8df15844eba4e764c8d29",
+  "examples/init.pp": "6c3c05af1b60222854d02ff3321ea4a9",
+  "manifests/params.pp": "313c2d9910aa08b5d5c954546add1ee8",
+  "manifests/init.pp": "a9f360473b26bac14c667f6b60328a64",
+  "manifests/app.pp": "1b0d2f53155aa7b9c1577efbf35d54d2",
+  "manifests/db.pp": "0fe0cb2768b400c3f40ea750f48b79fe"
+}
