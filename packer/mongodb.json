@@ -8,7 +8,7 @@
       "account_file": "account.json",
       "image_name": "mongodb-{{timestamp}}",
       "machine_type": "f1-micro",
-      "project_id": "rtmo-consul",
+      "project_id": "rtmo-consul-{{user `atlas_username`}}",
       "source_image": "ubuntu-1204-precise-v20150910",
       "zone": "us-central1-a"      
     }
