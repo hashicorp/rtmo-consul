@@ -37,7 +37,7 @@
       {
         "type": "atlas",
         "artifact": "{{user `atlas_username`}}/consul",
-        "artifact_type": "googlecompute.image",
+        "artifact_type": "google.image",
         "metadata": {
           "created_at": "{{timestamp}}"
         }

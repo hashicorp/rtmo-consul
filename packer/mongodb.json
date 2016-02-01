@@ -46,7 +46,7 @@
       {
         "type": "atlas",
         "artifact": "{{user `atlas_username`}}/mongodb",
-        "artifact_type": "googlecompute.image",
+        "artifact_type": "google.image",
         "metadata": {
           "created_at": "{{timestamp}}"
         }
